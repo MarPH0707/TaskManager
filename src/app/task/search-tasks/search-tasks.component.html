@@ -1,0 +1,18 @@
+<div id="search-component">
+  <h4><label for="search-box">Buscar Tarea</label></h4>
+  <!-- Cada vez que el usuario escribe en el texbox, se llama al método search -->
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <!-- Como *ngFor no puede hacer nada con un Observable, se usael  carácter de filtración (|) seguido de async.
+    Esto identifica el "AsyncPipe" de Angular y se suscribe
+    automáticamente a un "Observable" para que no tenga que hacerlo en la clase de componente. -->
+    <li *ngFor="let task of tasks$ | async" >
+      <a [routerLink]="['/task/', task.id, 'view']">
+        {{task.title}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+

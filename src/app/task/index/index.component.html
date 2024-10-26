@@ -1,0 +1,29 @@
+<div class="container">
+  <a href="#" routerLink="/task/create/" role="button" class="btn btn-success">Crear Tarea</a>
+
+  <table class="table-responsive table-info">
+      <thead>
+            <tr>
+              <th hidden>ID</th>
+              <th>Título</th>
+              <th>Descripción</th>
+              <th>Estado</th>
+              <th width="250px">Acción</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let task of tasks">
+              <td hidden>{{ task.id }}</td>
+              <td>{{ task.title }}</td>
+              <td>{{ task.description }}</td>
+              <td>{{ task.state }}</td>
+              <td>
+                <a href="#" [routerLink]="['/task/', task.id, 'view']" role="button" class="btn btn-outline-info btn-sm">Ver</a>
+                <a href="#" [routerLink]="['/task/', task.id, 'edit']" role="button" class="btn btn-outline-primary btn-sm">Editar</a>
+                <button type="button" (click)="deletePost(task.id)" class="btn btn-outline-danger btn-sm">Borrar</button>
+              </td>
+            </tr>
+      </tbody>
+  </table>
+</div>
+

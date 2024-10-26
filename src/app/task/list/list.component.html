@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Listado de Tareas</h1>
+  <!-- <a href="#" routerLink="/task/index" class="btn btn-primary">Atras</a> -->
+  <table class="table-responsive table-info">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td><a href="#" [routerLink]="['/task/', task.id, 'view']">{{ task.title }}</a></td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.state }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <app-search-tasks></app-search-tasks> -->
